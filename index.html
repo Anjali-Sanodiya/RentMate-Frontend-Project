@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f8f4" />
+    <title>RentMate — Find a place to call home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="RentMate home"
+        ><span class="brand-mark">⌂</span><span>rent<span>mate</span></span></a
+      >
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="active" href="#explore">Explore homes</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#why-rentmate">Why RentMate</a>
+      </nav>
+      <div class="header-actions">
+        <button class="saved-link" id="viewSaved">
+          <span>♡</span> Saved <b id="savedCount">0</b>
+        </button>
+        <button class="list-property" id="listProperty">
+          ＋ List your property
+        </button>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span> YOUR NEXT CHAPTER STARTS HERE
+          </div>
+          <h1>Find a place<br />to <em>call home.</em></h1>
+          <p class="hero-description">
+            Discover spaces that fit your lifestyle, your budget, and everything
+            in between.
+          </p>
+          <div class="hero-proof">
+            <div class="avatar-stack">
+              <span>A</span><span>R</span><span>M</span><span>+</span>
+            </div>
+            <div>
+              <strong>Made for real life</strong
+              ><small>Find your kind of place</small>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Cozy apartment interior">
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+            alt="Bright modern living room with comfortable furniture"
+          />
+          <div class="image-note">
+            <span class="note-icon">✦</span>
+            <div>
+              <strong>A home that feels like you</strong
+              ><small>Good spaces. Better beginnings.</small>
+            </div>
+          </div>
+          <div class="floating-card">
+            <span class="floating-icon">⌂</span>
+            <div>
+              <strong>Find your fit</strong
+              ><small>Homes for every chapter</small>
+            </div>
+          </div>
+        </div>
+        <div class="hero-bottom-shape"></div>
+      </section>
+
+      <section class="search-section" id="explore">
+        <div class="search-heading">
+          <div>
+            <p class="eyebrow">LET'S FIND YOUR PLACE</p>
+            <h2>Where would you like to live?</h2>
+          </div>
+          <span class="search-hint">Thoughtful homes, easier search.</span>
+        </div>
+        <form class="search-panel" id="searchForm">
+          <label class="search-field location-field"
+            ><span class="field-icon">⌖</span
+            ><span class="field-content"
+              ><small>LOCATION</small
+              ><input
+                id="locationInput"
+                type="text"
+                placeholder="City or neighbourhood" /></span
+          ></label>
+          <label class="search-field"
+            ><span class="field-icon">⌂</span
+            ><span class="field-content"
+              ><small>PROPERTY TYPE</small
+              ><select id="typeSelect">
+                <option value="all">Any property</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Studio">Studio</option>
+                <option value="House">Independent house</option>
+                <option value="PG">PG / Shared</option>
+              </select></span
+            ></label
+          >
+          <label class="search-field"
+            ><span class="field-icon">₹</span
+            ><span class="field-content"
+              ><small>MAX. MONTHLY RENT</small
+              ><select id="budgetSelect">
+                <option value="all">Any budget</option>
+                <option value="10000">Up to ₹10,000</option>
+                <option value="15000">Up to ₹15,000</option>
+                <option value="20000">Up to ₹20,000</option>
+                <option value="30000">Up to ₹30,000</option>
+                <option value="50000">Up to ₹50,000</option>
+              </select></span
+            ></label
+          >
+          <button class="search-button" type="submit">
+            <span>⌕</span> Find homes
+          </button>
+        </form>
+        <div class="quick-filters">
+          <span>Popular:</span
+          ><button class="quick-filter" data-location="Bhopal">Bhopal</button
+          ><button class="quick-filter" data-location="Indore">Indore</button
+          ><button class="quick-filter" data-location="Pune">Pune</button
+          ><button class="quick-filter" data-location="Bengaluru">
+            Bengaluru</button
+          ><button class="quick-filter" data-location="Delhi">Delhi</button>
+        </div>
+      </section>
+
+      <section class="listing-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">HANDPICKED FOR YOU</p>
+            <h2 id="listingTitle">Homes worth coming home to <span>✦</span></h2>
+            <p class="section-subtitle" id="listingSubtitle">
+              Explore places that make everyday living feel a little more
+              special.
+            </p>
+          </div>
+          <div class="listing-controls">
+            <button class="filter-toggle" id="resetFilters">↺ Reset</button
+            ><label class="sort-label"
+              >Sort by
+              <select id="sortSelect">
+                <option value="recommended">Recommended</option>
+                <option value="low">Rent: low to high</option>
+                <option value="high">Rent: high to low</option>
+              </select></label
+            >
+          </div>
+        </div>
+        <div class="results-bar">
+          <span id="resultsCount">6 homes to explore</span
+          ><button id="savedOnlyToggle" class="saved-only">
+            ♡ Show saved homes
+          </button>
+        </div>
+        <div class="property-grid" id="propertyGrid">
+          <article class="property-card">
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"
+                alt="Modern apartment living room"
+              /><span class="property-tag">GREAT VALUE</span
+              ><button class="heart-button" aria-label="Save property">
+                ♡
+              </button>
+            </div>
+            <div class="property-body">
+              <div class="property-location">BHOPAL · ARERA COLONY</div>
+              <h3>Sunlit modern apartment</h3>
+              <div class="property-meta">
+                <span>⌂ 2 BHK</span><span>▱ 980 sq.ft.</span
+                ><span>♧ Semi-furnished</span>
+              </div>
+              <div class="property-bottom">
+                <div class="rent">
+                  <strong>₹14,000</strong><span>/ month</span>
+                </div>
+                <button class="details-button">View details ↗</button>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
+                alt="Warm contemporary apartment interior"
+              /><span class="property-tag tag-green">MOVE-IN READY</span
+              ><button class="heart-button" aria-label="Save property">
+                ♡
+              </button>
+            </div>
+            <div class="property-body">
+              <div class="property-location">INDORE · VIJAY NAGAR</div>
+              <h3>Warm & welcoming home</h3>
+              <div class="property-meta">
+                <span>⌂ 2 BHK</span><span>▱ 1,100 sq.ft.</span
+                ><span>♧ Furnished</span>
+              </div>
+              <div class="property-bottom">
+                <div class="rent">
+                  <strong>₹18,500</strong><span>/ month</span>
+                </div>
+                <button class="details-button">View details ↗</button>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=80"
+                alt="Minimal and airy apartment interior"
+              /><span class="property-tag tag-blue">NEW LISTING</span
+              ><button class="heart-button" aria-label="Save property">
+                ♡
+              </button>
+            </div>
+            <div class="property-body">
+              <div class="property-location">PUNE · BANER</div>
+              <h3>Minimal city sanctuary</h3>
+              <div class="property-meta">
+                <span>⌂ 1 BHK</span><span>▱ 720 sq.ft.</span
+                ><span>♧ Furnished</span>
+              </div>
+              <div class="property-bottom">
+                <div class="rent">
+                  <strong>₹22,000</strong><span>/ month</span>
+                </div>
+                <button class="details-button">View details ↗</button>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+                alt="Comfortable modern house interior"
+              /><span class="property-tag tag-blue">BRIGHT & AIRY</span
+              ><button class="heart-button" aria-label="Save property">
+                ♡
+              </button>
+            </div>
+            <div class="property-body">
+              <div class="property-location">BENGALURU · WHITEFIELD</div>
+              <h3>Room to grow townhouse</h3>
+              <div class="property-meta">
+                <span>⌂ 3 BHK</span><span>▱ 1,450 sq.ft.</span
+                ><span>♧ Semi-furnished</span>
+              </div>
+              <div class="property-bottom">
+                <div class="rent">
+                  <strong>₹32,000</strong><span>/ month</span>
+                </div>
+                <button class="details-button">View details ↗</button>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80"
+                alt="Cozy apartment with natural light"
+              /><span class="property-tag">COZY PICK</span
+              ><button class="heart-button" aria-label="Save property">
+                ♡
+              </button>
+            </div>
+            <div class="property-body">
+              <div class="property-location">DELHI · LAXMI NAGAR</div>
+              <h3>Compact city studio</h3>
+              <div class="property-meta">
+                <span>⌂ Studio</span><span>▱ 430 sq.ft.</span
+                ><span>♧ Furnished</span>
+              </div>
+              <div class="property-bottom">
+                <div class="rent">
+                  <strong>₹9,500</strong><span>/ month</span>
+                </div>
+                <button class="details-button">View details ↗</button>
+              </div>
+            </div>
+          </article>
+          <article class="property-card">
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=900&q=80"
+                alt="Simple, bright shared-living space"
+              /><span class="property-tag tag-green">BUDGET FRIENDLY</span
+              ><button class="heart-button" aria-label="Save property">
+                ♡
+              </button>
+            </div>
+            <div class="property-body">
+              <div class="property-location">BHOPAL · MP NAGAR</div>
+              <h3>Easy-living shared space</h3>
+              <div class="property-meta">
+                <span>⌂ PG</span><span>▱ Private room</span
+                ><span>♧ Furnished</span>
+              </div>
+              <div class="property-bottom">
+                <div class="rent">
+                  <strong>₹7,500</strong><span>/ month</span>
+                </div>
+                <button class="details-button">View details ↗</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="empty-state" id="emptyState" hidden>
+          <div>⌂</div>
+          <h3>No homes found just yet</h3>
+          <p>Try changing your location, property type, or budget.</p>
+          <button class="search-button" id="emptyReset">Clear filters</button>
+        </div>
+        <div class="load-more-wrap">
+          <button class="load-more" id="loadMore">
+            Explore all homes <span>↓</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div class="how-intro">
+          <p class="eyebrow">A BETTER WAY TO FIND HOME</p>
+          <h2>Less searching.<br /><em>More settling in.</em></h2>
+          <p>
+            Finding a home should feel exciting, not overwhelming. We make the
+            first steps simple.
+          </p>
+          <a href="#explore" class="how-link">Start exploring <span>↗</span></a>
+        </div>
+        <div class="how-steps">
+          <article>
+            <div class="step-icon peach">⌕</div>
+            <div>
+              <span>01 / DISCOVER</span>
+              <h3>Find your kind of place</h3>
+              <p>
+                Search by location, budget, and the details that matter to you.
+              </p>
+            </div>
+          </article>
+          <article>
+            <div class="step-icon lavender">♡</div>
+            <div>
+              <span>02 / SHORTLIST</span>
+              <h3>Save what you love</h3>
+              <p>
+                Keep your favourite homes together while you compare your
+                options.
+              </p>
+            </div>
+          </article>
+          <article>
+            <div class="step-icon mint">⌂</div>
+            <div>
+              <span>03 / MAKE IT YOURS</span>
+              <h3>Take the next step</h3>
+              <p>
+                Explore property details and reach out when a place feels right.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bottom-cta" id="why-rentmate">
+        <div class="cta-spark">✦</div>
+        <div>
+          <p class="eyebrow">YOUR NEXT CHAPTER IS WAITING</p>
+          <h2>Somewhere out there,<br />there's a place for you.</h2>
+          <p>Let's find it together.</p>
+        </div>
+        <a href="#explore" class="cta-button">Find your home <span>↗</span></a>
+        <div class="cta-decoration">⌂</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"
+        ><span class="brand-mark">⌂</span><span>rent<span>mate</span></span></a
+      >
+      <p>Helping you find a place that feels like yours.</p>
+      <span
+        >© <span id="year"></span> RentMate · Find a place to call home
+      </span>
+    </footer>
+
+    <dialog id="propertyDialog" class="property-dialog">
+      <button class="dialog-close" id="dialogClose" aria-label="Close">
+        ×
+      </button>
+      <div id="dialogContent"></div>
+    </dialog>
+    <dialog id="listDialog" class="property-dialog list-dialog">
+      <button class="dialog-close" id="listDialogClose" aria-label="Close">
+        ×
+      </button>
+      <p class="eyebrow">PROPERTY OWNERS</p>
+      <h2>List your property</h2>
+      <p class="dialog-note">
+        This demo form previews the experience. It does not publish listings to
+        a server.
+      </p>
+      <form id="listForm" class="list-form">
+        <label
+          >Property title<input
+            required
+            id="newTitle"
+            placeholder="e.g. Sunny 2 BHK apartment" /></label
+        ><label
+          >City<input required id="newCity" placeholder="e.g. Bhopal" /></label
+        ><label
+          >Monthly rent (₹)<input
+            required
+            id="newRent"
+            type="number"
+            min="1"
+            placeholder="14000" /></label
+        ><label
+          >Property type<select id="newType">
+            <option>Apartment</option>
+            <option>Studio</option>
+            <option>House</option>
+            <option>PG</option>
+          </select></label
+        ><button class="search-button" type="submit">Preview listing</button>
+      </form>
+      <div id="listMessage" class="form-message" aria-live="polite"></div>
+    </dialog>
+    <script src="/src/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "rentmate",
+  "version": "1.0.0",
+  "description": "RentMate - A responsive rental home finder with property search, filters, saved homes, and listing previews.",
+  "private": true,
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve .",
+    "preview": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
