@@ -38,19 +38,18 @@ RentMate_Frontend_Project/
 
 1. Clone the repository
 ```bash
-   git clone https://github.com/Anjali-Sanodiya/RentMate_Frontend_Project.git
+git clone https://github.com/Anjali-Sanodiya/RentMate_Frontend_Project.git
 ```
 2. Open the project
-```bash
-Open the project folder in Visual Studio Code.
-```
+- Open the project folder in Visual Studio Code.
+
 3. Install dependencies
 ```bash
-   npm install
+npm install
 ```
 4. Run the application
 ```bash
-   npm run dev
+npm run dev
 ```
 
 ### 🏠 Demo Data
